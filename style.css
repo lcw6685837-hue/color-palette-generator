@@ -1,0 +1,71 @@
+@import url('[https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap](https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap)');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
+body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+
+.container {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 850px;
+}
+
+h1 { margin-bottom: 2rem; color: #1e293b; font-weight: 700; }
+
+#generate-btn {
+    background: #6366f1; color: white; border: none; padding: 12px 24px;
+    font-size: 1rem; border-radius: 12px; cursor: pointer; margin-bottom: 2rem;
+    transition: all 0.2s; font-weight: 600;
+}
+#generate-btn:hover { background: #4f46e5; transform: scale(1.05); }
+
+.palette-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 2.5rem;
+}
+
+.color-box {
+    background: #fff; padding: 10px; border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: relative;
+    border: 1px solid #f1f5f9;
+}
+
+.color { height: 130px; width: 100%; border-radius: 12px; margin-bottom: 12px; cursor: pointer; }
+
+.color-info { display: flex; justify-content: space-between; align-items: center; padding: 0 4px; }
+.hex-value { font-weight: 600; font-size: 0.85rem; color: #475569; }
+.copy-btn { cursor: pointer; color: #94a3b8; transition: color 0.2s; }
+.copy-btn:hover { color: #6366f1; }
+
+/* 자물쇠 스타일 */
+.lock-btn {
+    position: absolute; top: 18px; right: 18px; width: 28px; height: 28px;
+    background: rgba(255,255,255,0.9); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; cursor: pointer; color: #64748b; transition: all 0.2s;
+}
+.color-box.locked .lock-btn { background: #1e293b; color: #fff; }
+
+/* 색상표 스타일 */
+.grid-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9; }
+.grid-section h3 { margin-bottom: 1.2rem; font-size: 1.1rem; color: #334155; }
+.color-grid {
+    display: grid; grid-template-columns: repeat(15, 1fr);
+    gap: 8px; padding: 12px; background: #f8fafc; border-radius: 16px;
+}
+.grid-item { aspect-ratio: 1; border-radius: 6px; cursor: pointer; transition: transform 0.2s; border: 2px solid #fff; }
+.grid-item:hover { transform: scale(1.25); z-index: 10; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+/* 토스트 알림 */
+.toast {
+    position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%);
+    background: #1e293b; color: #fff; padding: 12px 32px; border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0; z-index: 1000; font-weight: 500;
+}
+.toast.show { bottom: 40px; opacity: 1; }
